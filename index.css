@@ -1,3 +1,81 @@
-#root{
-    background-color: red;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid black;
+  border-bottom: none;
+  color: #fff;
+  position: absolute; /* change to absolute */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 900; /* set a lower z-index value */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.app {
+  padding-top: 80px;
+  background-color: #fff; /* set a background color that matches your page */
+  z-index: 1000; /* set a higher z-index value */
+  min-height: 100vh; /* add this line to make the app take up the full height of the page */
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-box {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 70px;
+  height: 70px;
+  margin-right: 1rem;
+  border-radius: 50%;
+  flex-shrink: 0; /* add this line */
+}
+
+.nav-items ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.nav-items li {
+  margin-right: 2rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: black;
+}
+
+.res-card {
+  margin: 5px;
+  width: 200px;
+  border: 1px solid black;
+  background-color: lightgray;
+}
+
+.res-card:hover{
+  cursor: pointer;
+  border: 1px solid black;
+}
+
+.search{
+  padding: 10;
+  font-size: 20px;
+}
+
+.res-logo{
+  width: 187px;
+  height: 150px;
+  padding: 5px;
+}
+
+.res-container{
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1; /* add this line to make the container take up the remaining space */
 }
