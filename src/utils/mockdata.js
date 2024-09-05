@@ -1,4 +1,4 @@
-const resObj =[
+let resObj =[
     {
       "info": {
         "id": "5938",
