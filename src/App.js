@@ -1,12 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Header from "./Components/Header";
+import Header from "./components/Header";
 import Body from "./components/Body";
 import { createBrowserRouter ,RouterProvider, Outlet } from "react-router-dom";
 import About from "./components/About";
 import Contact from "./components/Contact"
 import Error from "./components/Error";
 import Cart from "./components/Cart"
+import RestuarantMenu from "./components/RestuarantMenu";
 
 
 const Applayout = () => {
@@ -43,6 +44,10 @@ const appRoutes = createBrowserRouter([
       {
         path : "/cart",
         element : <Cart/>
+      },
+      {
+        path : "/restuarants/:resID",
+        element : <RestuarantMenu/>
       }
     ],
     errorElement : <Error/>

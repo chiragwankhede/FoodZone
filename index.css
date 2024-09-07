@@ -137,3 +137,9 @@
   margin-right: 80;
   float: right;
 }
+
+
+a {
+  text-decoration: none;
+  color: black; /* or any other color you want */
+}

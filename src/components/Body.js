@@ -2,6 +2,7 @@ import Rescard from "./Rescard";
 import resObj from "../utils/mockdata";
 import Shimmer from "./Shimmer";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [restuarantlist, setRestuarantlist] = useState([]);
@@ -17,7 +18,7 @@ const Body = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=20.9319821&lng=77.7523039&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
 
     const jsonData = await data.json();
@@ -28,10 +29,10 @@ const Body = () => {
 
   };
 
+// if(restuarantlist.length === 0) return <Shimmer/>
 
 
-
-  return restuarantlist.length === 0 ? <Shimmer/> : (
+  return  (
     <div className="body">
       <div className="top">
         <div className="search">
@@ -54,7 +55,7 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filterRestuarant.map((resdata) => (
-          <Rescard key={resdata.info.id} resdata={resdata} />
+          <Link key={resdata.info.id} to = {"/restuarants/" + resdata.info.id}><Rescard  resdata={resdata} /> </Link>
         ))}
       </div>
     </div>
