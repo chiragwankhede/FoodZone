@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "start": "parcel index.html",
-    "prod" : "parcel build index.html"
+    "prod": "parcel build index.html"
   },
   "repository": {
     "type": "git",
@@ -23,9 +23,10 @@
   },
   "dependencies": {
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.1"
   },
-"browserslist": [
-  "last 10 version"
-]
+  "browserslist": [
+    "last 10 version"
+  ]
 }
