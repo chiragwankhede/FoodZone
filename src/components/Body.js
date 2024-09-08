@@ -47,7 +47,7 @@ const Body = () => {
           className="top-btn"
           onClick={() => {
             const filterList = restuarantlist.filter(
-              (resdata) => resdata.info.avgRating > 4.3
+              (resdata) => resdata.info.avgRating > 4.5
             );
             setfilterRestuarant(filterList);
           }}>Top Rated Restaurant</button>
