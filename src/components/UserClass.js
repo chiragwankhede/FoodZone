@@ -1,39 +1,43 @@
 import React from "react"
+import { json } from "react-router-dom";
 
 
 
 class UserClass extends React.Component{
     constructor(props){
         super(props);
-        this.state ={
-            count : 0,
-        };
-    console.log("child COnst")
+        this.state = {
+            userInfo: {
+                name : "Chirag Wankhede",
+                login : "chiragwankhede",
+                bio : "👋 Hi there! I'm Chirag, a passionate software engineer with a knack for turning ideas into elegant, efficient, and scalable solutions.",
+                avatar_url : "https://avatars.githubusercontent.com/u/160884662?s=400&u=be04033f46f0280ac603a9e0505d26731b45c9a7&v=4"
+            },
+        }
 
     }
 
-    componentDidMount(){
-        console.log('Child componentDidMount')
+
+    async componentDidMount(){
+        const data = await fetch ("https://api.github.com/users/chiragwankhede");
+        const json = await data.json();
+        console.log(json);
+        this.setState({
+            userInfo: json,
+        })
       }
 
     render(){
-    console.log("child render")
-
-        const {name,location,contact} = this.props;
-        const {count} = this.state;
+        const {name , login, bio,avatar_url, url } = this.state.userInfo;
+    
         return(
             <div className="user-data">
+            <img className = "photo-img"src = {avatar_url}></img>
             <h2>Name : {name}</h2>
-            <h3>Location : {location}</h3>
-            <h3>Contact : {contact}</h3>
-            <p>Count : {count}</p>
-
-            <button onClick={()=>{
-                this.setState({
-                    count : count + 1,
-                })
-            }}>Increment</button>
-
+            <h3>LinkedIn  UserName : {login}</h3>
+            <h3>Bio : {bio}</h3>
+            <h3>LinkedIn Profile Link : {"https://github.com/chiragwankhede"}</h3>
+            <h3>Email : chirag20wankhede@gmail.com</h3>
         </div>
         );
     }
