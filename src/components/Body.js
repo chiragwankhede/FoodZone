@@ -29,10 +29,10 @@ const Body = () => {
 
   };
 
-// if(restuarantlist.length === 0) return <Shimmer/>
 
 
-  return  (
+
+  return filterRestuarant.length === 0 ? <Shimmer/> :  (
     <div className="body">
       <div className="top">
         <div className="search">
