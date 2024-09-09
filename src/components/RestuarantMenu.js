@@ -29,13 +29,14 @@ const RestuarantMenu = () => {
 
   return (
     <div className="menu">
-      <h1>{name}</h1>
+      <h3>{name}</h3>
       <p>
         {cuisines.join(",")} - {costForTwoMessage}
       </p>
-      <ul>
+      <p>Menu</p>
+      <ul className="resmenu-list">
         {itemCards.map((items) => (
-          <li key={items.card.info.id}>
+          <li className = "resmenu"key={items.card.info.id}>
             {items.card.info.name} - Rs.{items.card.info.price / 100}
           </li>
         ))}

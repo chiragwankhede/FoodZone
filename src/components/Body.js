@@ -3,6 +3,7 @@ import resObj from "../utils/mockdata";
 import Shimmer from "./Shimmer";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [restuarantlist, setRestuarantlist] = useState([]);
@@ -29,6 +30,14 @@ const Body = () => {
 
   };
 
+  const onlineStatus = useOnlineStatus();
+
+  if(onlineStatus === false){
+    return (
+    <h1>Looks like you are Offline, Plz check your Internet Connection.... </h1>
+      
+    )
+  }
 
 
 
@@ -37,7 +46,7 @@ const Body = () => {
       <div className="top">
         <div className="search">
           <input type="text" className="search-box" value={search} onChange={(e)=>{setsearch(e.currentTarget.value)}}></input>
-          <button onClick={()=>{
+          <button className="search-btn"onClick={()=>{
             const filterRes =restuarantlist.filter((resdata)=>resdata.info.name.toLowerCase().includes(search.toLowerCase()));
             setfilterRestuarant(filterRes); 
             
