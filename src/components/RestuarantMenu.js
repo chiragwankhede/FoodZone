@@ -28,15 +28,15 @@ const RestuarantMenu = () => {
   console.log(itemCards);
 
   return (
-    <div className="menu">
-      <h3>{name}</h3>
-      <p>
+    <div className="bg-slate-50">
+      <h3 className="m-4 p -4 font-bold text-3xl font-serif">{name}</h3>
+      <p className="m-4 p -4 font-bold text-xl font-serif">
         {cuisines.join(",")} - {costForTwoMessage}
       </p>
-      <p>Menu</p>
-      <ul className="resmenu-list">
+      <p className="m-4 p -4 font-bold text-xl font-serif">Menu-</p>
+      <ul className="m-4 p-2 font-serif   ">
         {itemCards.map((items) => (
-          <li className = "resmenu"key={items.card.info.id}>
+          <li className = "p-1 m-1 list-decimal"key={items.card.info.id}>
             {items.card.info.name} - Rs.{items.card.info.price / 100}
           </li>
         ))}

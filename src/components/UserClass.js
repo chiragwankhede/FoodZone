@@ -31,13 +31,13 @@ class UserClass extends React.Component{
         const {name , login, bio,avatar_url, url } = this.state.userInfo;
     
         return(
-            <div className="user-data">
-            <img className = "photo-img"src = {avatar_url}></img>
-            <h2>Name : {name}</h2>
-            <h3>LinkedIn  UserName : {login}</h3>
-            <h3>Bio : {bio}</h3>
-            <h3>LinkedIn Profile Link : {"https://github.com/chiragwankhede"}</h3>
-            <h3>Email : chirag20wankhede@gmail.com</h3>
+            <div className="p-10 border border-black text-sm bg-slate-100 font-sans h-full">
+            <img className = "w-[150px] h-[150px] rounded-full mb-3"src = {avatar_url}></img>
+            <h2 className="px-4 text-lg font-bold font-serif">Name : {name}</h2>
+            <h3 className="px-4 text-lg font-bold font-serif">LinkedIn  UserName : {login}</h3>
+            <h3 className="px-4 text-lg font-bold font-serif">Bio : {bio}</h3>
+            <h3 className="px-4 text-lg font-bold font-serif">LinkedIn Profile Link : {"https://github.com/chiragwankhede"}</h3>
+            <h3 className="px-4 text-lg font-bold font-serif">Email : chirag20wankhede@gmail.com</h3>
         </div>
         );
     }

@@ -14,17 +14,16 @@ const Rescard = ({ resdata }) => {
     } = resdata;
   
     return (
-      <div className="res-card">
+      <div className="m-10 p-3 w-[250px] bg-gray-100  hover:bg-gray-300       rounded-lg">
         <img
-          className="res-logo"
+          className="rounded-md "
           alt="logo"
           src={ CDN_URL+ cloudinaryImageId}
         />
-        <h7>{name}</h7>
-        <h6>{cuisines.join(", ")}</h6>
-        <h6>{avgRating}</h6>
-        <h6>{costForTwo}</h6>
-        <h6>{deliveryTime} minutes</h6>
+        <h3 className="font-bold py-2 text-lg font-serif">{name}</h3>
+        <h4 className="py-2 text-lg font-serif">{cuisines.join(", ")}</h4>
+        <h4 className="font-semibold py-2 text-md">⭐{avgRating} ▪  {deliveryTime - 10 }-{deliveryTime} minutes</h4>
+        <h4 className="font-semibold py-2 text-lg">{costForTwo}</h4>
       </div>
     );
   };

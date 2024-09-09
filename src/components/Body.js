@@ -42,27 +42,30 @@ const Body = () => {
 
 
   return filterRestuarant.length === 0 ? <Shimmer/> :  (
-    <div className="body">
-      <div className="top">
-        <div className="search">
-          <input type="text" className="search-box" value={search} onChange={(e)=>{setsearch(e.currentTarget.value)}}></input>
-          <button className="search-btn"onClick={()=>{
+    <div className="bg-orange-50">
+      <div className="flex">
+        <div className="m-4 p-4 ">
+          <input type="text" className="border border-solid border-black" value={search} onChange={(e)=>{setsearch(e.currentTarget.value)}}></input>
+          <button className="px-4 py-1 bg-slate-300 m-2 rounded-lg "onClick={()=>{
             const filterRes =restuarantlist.filter((resdata)=>resdata.info.name.toLowerCase().includes(search.toLowerCase()));
             setfilterRestuarant(filterRes); 
             
           }}>Search</button>
         </div>
+        <div className="m-4 p-4 flex items-center">
         <button
-          className="top-btn"
+          className="px-4 bg-slate-400 rounded-lg"
           onClick={() => {
             const filterList = restuarantlist.filter(
               (resdata) => resdata.info.avgRating > 4.5
             );
             setfilterRestuarant(filterList);
           }}>Top Rated Restaurant</button>
+        </div>
+
 
       </div>
-      <div className="res-container">
+      <div className="flex flex-wrap">
         {filterRestuarant.map((resdata) => (
           <Link key={resdata.info.id} to = {"/restuarants/" + resdata.info.id}><Rescard  resdata={resdata} /> </Link>
         ))}
