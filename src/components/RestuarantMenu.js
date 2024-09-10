@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
-import { MENU_API } from "../utils/constants"; 
+import { MENU_API } from "../utils/constants";
+import RestuarantCategory from "./RestuarantCategory";
 
 const RestuarantMenu = () => {
   const [resinfo, setresinfo] = useState(null);
@@ -13,7 +14,9 @@ const RestuarantMenu = () => {
   }, []);
 
   const fetchMenu = async () => {
-    const response = await fetch(MENU_API  + resID + "&catalog_qa=undefined&submitAction=ENTER");
+    const response = await fetch(
+      MENU_API + resID + "&catalog_qa=undefined&submitAction=ENTER"
+    );
     const json = await response.json();
     setresinfo(json.data);
   };
@@ -25,24 +28,42 @@ const RestuarantMenu = () => {
 
   const { itemCards } =
     resinfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
-  console.log(itemCards);
+  // console.log(resinfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
+
+  const categories =
+    resinfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+      (c) =>
+        c?.card?.card?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory");
+        console.log(categories);
+        
 
   return (
-    <div className="bg-slate-50">
+    <div className="bg-slate-50 text-center">
       <h3 className="m-4 p -4 font-bold text-3xl font-serif">{name}</h3>
       <p className="m-4 p -4 font-bold text-xl font-serif">
         {cuisines.join(",")} - {costForTwoMessage}
       </p>
-      <p className="m-4 p -4 font-bold text-xl font-serif">Menu-</p>
-      <ul className="m-4 p-2 font-serif   ">
-        {itemCards.map((items) => (
-          <li className = "p-1 m-1 list-decimal"key={items.card.info.id}>
-            {items.card.info.name} - Rs.{items.card.info.price / 100}
-          </li>
-        ))}
-      </ul>
+      {categories.map((category) => <RestuarantCategory key = {category?.card?.card.title} data = {category?.card?.card}/>)}
     </div>
   );
 };
 
 export default RestuarantMenu;
+
+
+
+
+
+
+
+
+
+
+{/* <ul className="m-4 p-2 font-serif   ">
+{itemCards.map((items) => (
+  <li className="p-1 m-1 list-decimal" key={items.card.info.id}>
+    {items.card.info.name} - Rs.{items.card.info.price / 100}
+  </li>
+))}
+</ul> */}

@@ -11,6 +11,9 @@ const Body = () => {
 
   const [search , setsearch] = useState("")
 
+  // console.log(restuarantlist);
+  
+
 
 
   useEffect(() => {
@@ -23,7 +26,7 @@ const Body = () => {
     );
 
     const jsonData = await data.json();
-    console.log(jsonData);
+    // console.log(jsonData);
     setRestuarantlist(jsonData?.data.cards[1]?.card.card?.gridElements?.infoWithStyle?.restaurants);
     setfilterRestuarant(jsonData?.data.cards[1]?.card.card?.gridElements?.infoWithStyle?.restaurants);
     
