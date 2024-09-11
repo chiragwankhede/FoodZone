@@ -1,9 +1,13 @@
 import Rescard from "./Rescard";
 import resObj from "../utils/mockdata";
 import Shimmer from "./Shimmer";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
+
+
+
 
 const Body = () => {
   const [restuarantlist, setRestuarantlist] = useState([]);
@@ -42,10 +46,11 @@ const Body = () => {
     )
   }
 
+  const{LoggedInUSer ,setUserName} = useContext(UserContext)
 
 
   return filterRestuarant.length === 0 ? <Shimmer/> :  (
-    <div className="bg-orange-50">
+    <div className="bg-white">
       <div className="flex">
         <div className="m-4 p-4 ">
           <input type="text" className="border border-solid border-black" value={search} onChange={(e)=>{setsearch(e.currentTarget.value)}}></input>
@@ -65,8 +70,10 @@ const Body = () => {
             setfilterRestuarant(filterList);
           }}>Top Rated Restaurant</button>
         </div>
-
-
+        <div className="m-4 p-4 flex items-center">
+          <label className="text-md font-serif">UserName: </label>
+            <input className="border border-black p-2 font-serif" value = {LoggedInUSer} onChange={(e)=>setUserName(e.target.value)}></input>
+        </div>
       </div>
       <div className="flex flex-wrap">
         {filterRestuarant.map((resdata) => (

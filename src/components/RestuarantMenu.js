@@ -7,6 +7,8 @@ import RestuarantCategory from "./RestuarantCategory";
 const RestuarantMenu = () => {
   const [resinfo, setresinfo] = useState(null);
 
+  const [showIndex , setShowIndex] = useState(null);
+
   const { resID } = useParams();
 
   useEffect(() => {
@@ -34,9 +36,9 @@ const RestuarantMenu = () => {
     resinfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
       (c) =>
         c?.card?.card?.["@type"] ===
-        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory");
-        console.log(categories);
-        
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
+  // console.log(categories);
 
   return (
     <div className="bg-slate-50 text-center">
@@ -44,7 +46,14 @@ const RestuarantMenu = () => {
       <p className="m-4 p -4 font-bold text-xl font-serif">
         {cuisines.join(",")} - {costForTwoMessage}
       </p>
-      {categories.map((category) => <RestuarantCategory key = {category?.card?.card.title} data = {category?.card?.card}/>)}
+      {categories.map((category , index) => (
+        <RestuarantCategory
+          key={category?.card?.card.title}
+          data={category?.card?.card}
+          showItem={ index === showIndex ? true : false}
+          setShowIndex ={()=>setShowIndex(index)}
+        />
+      ))}
     </div>
   );
 };
@@ -60,10 +69,16 @@ export default RestuarantMenu;
 
 
 
-{/* <ul className="m-4 p-2 font-serif   ">
+
+
+
+
+{
+  /* <ul className="m-4 p-2 font-serif   ">
 {itemCards.map((items) => (
   <li className="p-1 m-1 list-decimal" key={items.card.info.id}>
     {items.card.info.name} - Rs.{items.card.info.price / 100}
   </li>
 ))}
-</ul> */}
+</ul> */
+}
