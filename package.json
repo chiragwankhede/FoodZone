@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "start": "parcel index.html",
-    "prod": "parcel build index.html"
+    "prod": "parcel build App.js --out-file index.html"
   },
   "repository": {
     "type": "git",
