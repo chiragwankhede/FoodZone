@@ -21,7 +21,7 @@ To run this project locally, follow these steps:
 
 Clone the repository:
 
-git clone https://github.com/chiragwankhede/FoodZone.git
+git clone h[ttps://github.com/chiragwankhede/FoodZone.git](https://github.com/chiragwankhede/FoodApp.git)
 
 Navigate to the project directory:
 
