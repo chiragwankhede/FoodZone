@@ -2,7 +2,7 @@
   "name": "foodapp",
   "version": "1.0.0",
   "description": "This is a food Ordering App",
-  "main": "App.js",
+  "main": "index.html",
   "scripts": {
     "test": "jest",
     "start": "parcel index.html",
