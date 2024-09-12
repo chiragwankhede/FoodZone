@@ -9,6 +9,8 @@ import Error from "./components/Error";
 import Cart from "./components/Cart";
 import RestuarantMenu from "./components/RestuarantMenu";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 
 const Applayout = () => {
   const [userName, setUserName] = useState();
@@ -21,12 +23,14 @@ const Applayout = () => {
   }, []);
 
   return (
+    <Provider store={appStore}>
     <UserContext.Provider value={{ LoggedInUSer: userName , setUserName }}>
       <div className="app">
         <Header />
         <Outlet />
       </div>
     </UserContext.Provider>
+    </Provider>
   );
 };
 
