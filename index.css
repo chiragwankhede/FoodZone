@@ -16,8 +16,8 @@
   width: 201px;
   height: 350px;
   border-radius: 10px;
-  background-color: #f6f6f6;
-  background-image: linear-gradient(to right, #f6f6f6, #e5e5e5);
+  background-color: #a7a0a0;
+  background-image: linear-gradient(to right, #f6f6f6, #c7c4c4);
   background-size: 1000px 640px;
   animation: shimmer 2s infinite;
 }
